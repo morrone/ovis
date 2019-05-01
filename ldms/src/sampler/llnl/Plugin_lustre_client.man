@@ -46,7 +46,7 @@ The name of the metric set.  This will be ignored, and the individual metric set
 .TP
 schema=<schema>
 .br
-The name of the schema. It is best to leave it to the plugin to name the schema, but users may override the plugin-choosen schema name if they wish.
+The name of the schema (default lustre_client). 
 .TP
 rescan_sec=<rsec>
 .br
@@ -73,4 +73,4 @@ start name=lustre_client interval=1000000
 .fi
 
 .SH SEE ALSO
-ldmsd(8), ldms_quickstart(7), ldmsd_controller(8), ldms_sampler_base(7)
+ldmsd(8), ldms_quickstart(7), ldmsd_controller(8)
