@@ -514,24 +514,6 @@ AC_DEFINE_UNQUOTED([LDMS_COMPILE_HOST_OS],["$LDMS_COMPILE_HOST_OS"],[os where co
 AC_DEFINE_UNQUOTED([LDMS_CONFIG_ARGS],["$ac_configure_args"],[configure input])
 ])
 
-AC_DEFUN([OVIS_EXEC_SCRIPTS], [
-	ovis_exec_scripts=""
-	for i in "$*"; do
-		x="$x $i";
-	done
-	for i in $x; do
-		ovis_exec_scripts="$ovis_exec_scripts $i"
-		x=`basename $i`
-		if ! test "x$x" = "x"; then
-			ovis_extra_dist="$ovis_extra_dist ${x}.in"
-		else
-			echo cannot parse $i
-		fi
-		AC_CONFIG_FILES([$i],[chmod a+x $i])
-	done
-	AC_SUBST([OVIS_EXTRA_DIST],[$ovis_extra_dist])
-])
-
 AC_DEFUN([SUBST_MAYBE],[
 [if test "$enable_]m4_translit([$1], [-+.], [___])[" = "yes"; then
 	MAYBE_]m4_translit([$1], [-+.a-z], [___A-Z])[="$1"

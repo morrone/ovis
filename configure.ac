@@ -786,43 +786,27 @@ ldms/ldms.spec
 ldms/man/Makefile
 ])
 
-OVIS_EXEC_SCRIPTS(
-	util/relocation/bld_manifest.sh
-	util/relocation/relocate-paths.sh
-	util/sample_init_scripts/genders/systemd/etc/sysconfig/ldms.d/ldmsd
-	util/sample_init_scripts/genders/systemd/etc/sysconfig/ldms.d/ldms-functions
-	util/sample_init_scripts/genders/systemd/ldmsd-pre-systemd
-	util/sample_init_scripts/genders/systemd/ldmsd-wrapper.sh
-	util/sample_init_scripts/genders/sysv/etc/init.d/ldmsd
-	util/sample_init_scripts/genders/sysv/etc/init.d/ldmsd.template
-	util/sample_init_scripts/genders/sysv/ldmsd-pre-sysvinit
-	ldms/scripts/ldms-wrapper
-	ldms/scripts/ldms-static-test.sh
-	ldms/scripts/pll-ldms-static-test.sh
-	ldms/scripts/ldms_ban.sh
-	ldms/scripts/ldms-plugins.sh
-	ldms/scripts/ldms-py-subset_test.sh
-	ldms/scripts/ldms-py-varset.sh
-	ldms/scripts/ldms-py-syslog.sh
-	ldms/scripts/ldms-py-rename.sh
-	ldms/scripts/ldms-meminfo.sh
-	ldms/scripts/ldms_local_opa2test.sh
-	ldms/scripts/ldms-l2_test.sh
-)
-
-AC_CONFIG_COMMANDS([scripts],[ echo fixing script perms.
-for i in $ovis_exec_scripts; do
-	if test -f $ovis_exec_scripts_objdir/$i; then
-		chmod a+x $ovis_exec_scripts_objdir/$i;
-	else
-		echo failing chmod on missing $ovis_exec_scripts_objdir/$i;
-	fi
-done
-],[
-	ovis_exec_scripts="$ovis_exec_scripts"
-	ovis_extra_dist="$ovis_extra_dist"
-	ovis_exec_scripts_objdir="$ac_pwd"
-])
+AC_CONFIG_FILES([util/relocation/bld_manifest.sh],[chmod a+x util/relocation/bld_manifest.sh])
+AC_CONFIG_FILES([util/relocation/relocate-paths.sh],[chmod a+x util/relocation/relocate-paths.sh])
+AC_CONFIG_FILES([util/sample_init_scripts/genders/systemd/etc/sysconfig/ldms.d/ldmsd],[chmod a+x util/sample_init_scripts/genders/systemd/etc/sysconfig/ldms.d/ldmsd])
+AC_CONFIG_FILES([util/sample_init_scripts/genders/systemd/etc/sysconfig/ldms.d/ldms-functions],[chmod a+x util/sample_init_scripts/genders/systemd/etc/sysconfig/ldms.d/ldms-functions])
+AC_CONFIG_FILES([util/sample_init_scripts/genders/systemd/ldmsd-pre-systemd],[chmod a+x util/sample_init_scripts/genders/systemd/ldmsd-pre-systemd])
+AC_CONFIG_FILES([util/sample_init_scripts/genders/systemd/ldmsd-wrapper.sh],[chmod a+x util/sample_init_scripts/genders/systemd/ldmsd-wrapper.sh])
+AC_CONFIG_FILES([util/sample_init_scripts/genders/sysv/etc/init.d/ldmsd],[chmod a+x util/sample_init_scripts/genders/sysv/etc/init.d/ldmsd])
+AC_CONFIG_FILES([util/sample_init_scripts/genders/sysv/etc/init.d/ldmsd.template],[chmod a+x util/sample_init_scripts/genders/sysv/etc/init.d/ldmsd.template])
+AC_CONFIG_FILES([util/sample_init_scripts/genders/sysv/ldmsd-pre-sysvinit],[chmod a+x util/sample_init_scripts/genders/sysv/ldmsd-pre-sysvinit])
+AC_CONFIG_FILES([ldms/scripts/ldms-wrapper],[chmod a+x ldms/scripts/ldms-wrapper])
+AC_CONFIG_FILES([ldms/scripts/ldms-static-test.sh],[chmod a+x ldms/scripts/ldms-static-test.sh])
+AC_CONFIG_FILES([ldms/scripts/pll-ldms-static-test.sh],[chmod a+x ldms/scripts/pll-ldms-static-test.sh])
+AC_CONFIG_FILES([ldms/scripts/ldms_ban.sh],[chmod a+x ldms/scripts/ldms_ban.sh])
+AC_CONFIG_FILES([ldms/scripts/ldms-plugins.sh],[chmod a+x ldms/scripts/ldms-plugins.sh])
+AC_CONFIG_FILES([ldms/scripts/ldms-py-subset_test.sh],[chmod a+x ldms/scripts/ldms-py-subset_test.sh])
+AC_CONFIG_FILES([ldms/scripts/ldms-py-varset.sh],[chmod a+x ldms/scripts/ldms-py-varset.sh])
+AC_CONFIG_FILES([ldms/scripts/ldms-py-syslog.sh],[chmod a+x ldms/scripts/ldms-py-syslog.sh])
+AC_CONFIG_FILES([ldms/scripts/ldms-py-rename.sh],[chmod a+x ldms/scripts/ldms-py-rename.sh])
+AC_CONFIG_FILES([ldms/scripts/ldms-meminfo.sh],[chmod a+x ldms/scripts/ldms-meminfo.sh])
+AC_CONFIG_FILES([ldms/scripts/ldms_local_opa2test.sh],[chmod a+x ldms/scripts/ldms_local_opa2test.sh])
+AC_CONFIG_FILES([ldms/scripts/ldms-l2_test.sh],[chmod a+x ldms/scripts/ldms-l2_test.sh])
 
 AC_OUTPUT
 
